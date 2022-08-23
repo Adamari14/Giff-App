@@ -1,15 +1,19 @@
 import React, {useEffect ,useState} from 'react';
 import './App.css';
 
-const GIFS = ['https://media0.giphy.com/media/E49KOgnZDmLXq/200w.webp?cid=ecf05e47pr692hnlzob1yad06gxq9meocxd3p61urgahh3sc&rid=200w.webp&ct=g', 'https://media0.giphy.com/media/nVsLCrW5iHf6E/giphy.gif?cid=ecf05e47yu8eeq3bx7ao6mthmg3tcuhiasparhuxhbmflayr&rid=giphy.gif&ct=g']
-
-const DIFFERENTS_GIFS = ['https://media1.giphy.com/media/aUhEBE0T8XNHa/giphy.gif?cid=ecf05e47106xp1r0sgyphghy3ms1n3r416rvic5t69kqb7en&rid=giphy.gif&ct=g' ]
+const apiURL = 'https://api.giphy.com/v1/gifs/search?api_key=5LoxDPdQ2ixQkQ0NCghrFzLGfY5KeNFq&q=panda&limit=10&offset=0&rating=g&lang=en'
 
 function App() {
-  const [gifs, setGifs] = useState(GIFS)
+  const [gifs, setGifs] = useState([])
   
   useEffect(function(){
-    setGifs(DIFFERENTS_GIFS)
+    fetch(apiURL)
+      .then(res => res.json())
+      .then(response => {
+        const {data} = response
+        const gifs = data.map(image => image.images.downsized_medium.url)
+        setGifs(gifs)
+      })
   }, [])
 
   return (
