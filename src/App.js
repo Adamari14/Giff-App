@@ -15,8 +15,14 @@ export default function App() {
     <div className="App">
       <section className="App-content">
       {
-        gifs.map(singleGif => 
-        <Gif title={singleGif.title} url={singleGif.url} id={singleGif.id}/>)
+        gifs.map(({id, title, url}) => 
+          <Gif
+            key={id}
+            title={title} 
+            url={url} 
+            id={id}
+          />
+        )
         
       }
       </section>
