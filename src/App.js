@@ -5,29 +5,30 @@ import Home from './pages/Home'
 import SearchResults from './pages/SearchResults'
 import Detail from './pages/Detail'
 import StaticContext from './context/StaticContext';
+import { GifsContextProvider } from './context/GifsContext';
 
 export default function App() {
   return (
-    <StaticContext.Provider value={{
-    name: 'monx13',
-    suscribeteAlCanal: true
-    }} >
+    <StaticContext.Provider value={{name: 'monx13',
+    suscribeteAlCanal: true }} >
       <div className="App">
         <section className="App-content">
           <Link to="/">
-            <img className='App-logo' alt='Giffy logo' src='/logo.png' />
+            <img className='App-logo' alt='Giffy logo' src='./logo.png' />
           </Link>
-          <Route 
-            component={Home}
-            path= "/"
+          <GifsContextProvider>
+            <Route 
+              component={Home}
+              path= "/"
+            />
+            <Route 
+              component={SearchResults}
+              path= "/search/keyword" />
+            <Route 
+            component={Detail}
+            path= "/gif/:id"
           />
-          <Route 
-            component={SearchResults}
-            path= "/search/keyword" />
-          <Route 
-          component={Detail}
-          path= "/gif/:id"
-        />
+        </GifsContextProvider>
         </section>
       </div>
     </StaticContext.Provider>
