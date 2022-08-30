@@ -8,7 +8,10 @@ import StaticContext from './context/StaticContext';
 
 export default function App() {
   return (
-    <StaticContext.Provider>
+    <StaticContext.Provider value={{
+    name: 'monx13',
+    suscribeteAlCanal: true
+    }} >
       <div className="App">
         <section className="App-content">
           <Link to="/">

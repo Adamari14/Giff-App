@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Context = React.createContext({
-    name: 'monx13',
+    name: 'valor-de-defecto',
     suscribeteAlCanal: true
 })
 
