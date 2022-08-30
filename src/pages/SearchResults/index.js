@@ -1,6 +1,6 @@
 import React from 'react';
-import Spinner  from '../../componentes/Spinner';
-import ListOfGifs from '../../componentes/ListOfGifs';
+import Spinner  from '../../components/Spinner';
+import ListOfGifs from '../../components/ListOfGifs';
 import { useGifs } from '../../hooks/useGifs';
 
 export default function SearchResults({params}){
@@ -12,8 +12,7 @@ export default function SearchResults({params}){
 
 
     return <>
-        {loading// si carga ,se muestra el spinner. 
-        //Si no se muestda lalista de  gifs
+        {loading
             ? <Spinner/>
             : <ListOfGifs gifs={gifs} />
         }
