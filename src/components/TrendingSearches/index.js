@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import getTrendingTerms from 'services/getTrendingTermsService'
 import Category from 'Category'
 
@@ -14,6 +14,7 @@ function TrendingSearches (){
 
 export default function LazyTrending () {
     const[show, setShow] = useState(false)
+    const elementRef = useRef()
 
     useEffect(function () {
         const onChange = (entries) => {
@@ -27,10 +28,10 @@ export default function LazyTrending () {
             rootMargin: '100px'
         }) 
 
-        observer.observer(document.getElementById('LazyTrending'))
+        observer.observer(elementRef.current)//valor de la referencia
     })
 
-    return <div id='LazyTrending'>
+    return <div ref={elementRef}>
         {show ? <TrendingSearches/> : null}
     </div>
 } 
