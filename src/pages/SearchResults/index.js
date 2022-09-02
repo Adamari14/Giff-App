@@ -10,9 +10,9 @@ export default function SearchResults ({ params }) {
   const externalRef = useRef() //
   const {isNearScreen} = useNearScreen({externalRef : loading ? null : externalRef})
 
-  //const handleNextPage = () => setPage(prevPage => prevPage + 1)
+  const handleNextPage = () => setPage(prevPage => prevPage + 1)
 
-  const handleNextPage = () => console.log('next page')
+  //const handleNextPage = () => console.log('next page')
 
   useEffect(function() {
     if (isNearScreen) handleNextPage()
