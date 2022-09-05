@@ -19,7 +19,6 @@ export default function useNearScreen ({ distance = '100px', externalRef, once =
         !once && setShow(false)
       }
     }
-      
 
     Promise.resolve(
       typeof IntersectionObserver != 'undefined'

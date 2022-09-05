@@ -14,10 +14,9 @@ export default function SearchResults ({ params }) {
     once: false
   })
 
-
   const debounceHandleNextPage = useCallback(debounce( 
     () => setPage(prevPage => prevPage + 1), 200
-  ), [])
+  ), [setPage])
 
   useEffect(function () {
     if (isNearScreen) debounceHandleNextPage()
@@ -33,7 +32,6 @@ export default function SearchResults ({ params }) {
         <ListOfGifs gifs={gifs} />
         <div id="visor" ref={externalRef}></div>
       </>
-    }
-    
+    } 
   </>
 }
