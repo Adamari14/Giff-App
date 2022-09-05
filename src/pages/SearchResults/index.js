@@ -8,23 +8,18 @@ import debounce from 'just-debounce-it'
 export default function SearchResults ({ params }) {
   const { keyword } = params
   const { loading, gifs, setPage } = useGifs({ keyword })
-  const externalRef = useRef() //
+  const externalRef = useRef() 
   const {isNearScreen} = useNearScreen({
     externalRef: loading ? null : externalRef,
     once: false
   })
 
 
-  //const handleNextPage = () => setPage(prevPage => prevPage + 1)
-
-  //const handleNextPage = () => console.log('next page')
-
   const debounceHandleNextPage = useCallback(debounce( 
-    () => console.log('next page') , 1000
+    () => setPage(prevPage => prevPage + 1), 200
   ), [])
 
   useEffect(function () {
-    console.log(isNearScreen)
     if (isNearScreen) debounceHandleNextPage()
   }, [debounceHandleNextPage, isNearScreen])
 
@@ -39,7 +34,6 @@ export default function SearchResults ({ params }) {
         <div id="visor" ref={externalRef}></div>
       </>
     }
-    <br />
-    <button onClick={handleNextPage}>Get next page</ button>
+    
   </>
 }
