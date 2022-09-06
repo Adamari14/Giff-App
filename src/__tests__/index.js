@@ -1,9 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, waitForElement } from '@testing-library/react';
 import App from '../App';
 
-test('home work as expecte', () => {
+test('home work as expecte', async() => {
   const {container} = render(<App />)
-  const gifLink = container.querySelector('.Gif-link')
+  const gifLink = await waitForElement(() => 
+    container.querySelector('.Gif-link')
+    )
+   
   expect(gifLink).toBeVisible()
 });
