@@ -1,13 +1,11 @@
 import React from 'react'
 import Gif from 'components/Gif'
-import useGlobalGifs from 'hooks/useGlobalGifs'
+import useSingleGifs from 'hooks/useSingleGif'
 
 export default function Detail ({ params }) {
-  const gifs = useGlobalGifs()
+  const {gif} = useSingleGifs({id: params.id})
 
-  const gif = gifs.find(singleGif =>
-    singleGif.id === params.id
-  )
+  if(!gif) return null
 
   return <>
       <h3 className="App-title">{gif.title}</h3>
