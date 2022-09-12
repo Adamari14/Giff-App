@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Adamari14/Giff-App/static/css/main.f507a977.css",
+    "main.js": "/Adamari14/Giff-App/static/js/main.88de99e8.js",
+    "static/css/196.632e86c8.chunk.css": "/Adamari14/Giff-App/static/css/196.632e86c8.chunk.css",
+    "static/js/196.8e6db46c.chunk.js": "/Adamari14/Giff-App/static/js/196.8e6db46c.chunk.js",
+    "static/js/829.261f5a81.chunk.js": "/Adamari14/Giff-App/static/js/829.261f5a81.chunk.js",
+    "static/js/787.4f6fae82.chunk.js": "/Adamari14/Giff-App/static/js/787.4f6fae82.chunk.js",
+    "index.html": "/Adamari14/Giff-App/index.html",
+    "main.f507a977.css.map": "/Adamari14/Giff-App/static/css/main.f507a977.css.map",
+    "main.88de99e8.js.map": "/Adamari14/Giff-App/static/js/main.88de99e8.js.map",
+    "196.632e86c8.chunk.css.map": "/Adamari14/Giff-App/static/css/196.632e86c8.chunk.css.map",
+    "196.8e6db46c.chunk.js.map": "/Adamari14/Giff-App/static/js/196.8e6db46c.chunk.js.map",
+    "829.261f5a81.chunk.js.map": "/Adamari14/Giff-App/static/js/829.261f5a81.chunk.js.map",
+    "787.4f6fae82.chunk.js.map": "/Adamari14/Giff-App/static/js/787.4f6fae82.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f507a977.css",
+    "static/js/main.88de99e8.js"
+  ]
+}
