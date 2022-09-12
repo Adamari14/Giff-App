@@ -28,7 +28,11 @@ export default function App() {
               path="/search/:keyword"  />
             <Route
               component={Detail}
-              path="/gif/:id"
+              path="/gif/:id"/>
+            <Route
+              component={()=>
+              <h1>404 ERROR :C</h1>}
+              path="/404"
             />
           </GifsContextProvider>
         </section>

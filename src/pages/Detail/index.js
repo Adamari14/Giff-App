@@ -6,6 +6,7 @@ export default function Detail ({ params }) {
   const {gif, isLoading, isError} = useSingleGifs({id: params.id})
 
   if (isLoading) return <Spinner />
+  if (isError) return <Redirect to='/404' />
   if(!gif) return null
 
   return <>
