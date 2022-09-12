@@ -20,7 +20,7 @@ export default function SearchResults ({ params }) {
 
   useEffect(function () {
     if (isNearScreen) debounceHandleNextPage()
-  }, [debounceHandleNextPage, isNearScreen])
+  }) // [debounceHandleNextPage, isNearScreen])
 
   return <>
     {loading
