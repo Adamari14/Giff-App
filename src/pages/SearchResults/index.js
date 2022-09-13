@@ -5,6 +5,7 @@ import {useGifs} from 'hooks/useGifs'
 import useNearScreen from 'hooks/useNearScreen'
 import debounce from 'just-debounce-it'
 import { Helmet } from 'react-helmet'
+import SearchForm from '../../components/SearchForm'
 
 export default function SearchResults ({ params }) {
   const { keyword } = params
@@ -34,6 +35,9 @@ export default function SearchResults ({ params }) {
         <meta name="description" content={title}></meta>
         <meta name="rating" content="General"/>
       </Helmet>
+      <header  className="o-headers">
+        <SearchForm/>
+      </header>
         <h3 className="App-title">
           {decodeURI(keyword)}
         </h3>
