@@ -6,20 +6,24 @@ const RATINGS = ['g', 'pg', 'pg-13', 'r']
 export default function SearchForm({initialKeyword= '', initialRating='g'}){
   const [keyword, setKeyword] = useState(decodeURIComponent(initialKeyword))
   const [rating, setRating] = useState(initialRating)
-  const [path, pushLocation] = useLocation()
+  const [times, setTimes] = useState (0)
 
-  const handleChange = evt => {
-    setKeyword(evt.target.value)
-  }
+  const [path, pushLocation] = useLocation()
 
   const handleSubmit = evt => {
     evt.preventDefault()
     pushLocation(`/search/${keyword}/${rating}`)
   }
 
+  const handleChange = evt => {
+    setKeyword(evt.target.value)
+    setTimes(times + 1)
+  }
+  
+
   const handleChangeRating = (evt) =>{
     setRating(evt.target.value)
-}
+  }
 
   return (
   <form onSubmit={handleSubmit}>
@@ -33,6 +37,7 @@ export default function SearchForm({initialKeyword= '', initialRating='g'}){
       {RATINGS.map((rating) => (
       <option key={rating}>{rating}</option> ))}
     </select>
+    <small>{times}</small>
   </form>
   )
 }
