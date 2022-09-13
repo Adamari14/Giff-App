@@ -13,7 +13,7 @@ function SearchForm () {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    pushLocation(`/search/${keyword}`)
+    pushLocation(`/search/${keyword}/${rating}`)
   }
 
   const handleChangeRating = (evt) =>{

@@ -4,7 +4,7 @@ import GifsContext from '../context/GifsContext'
 
 const INITIAL_PAGE = 0
 
-export function useGifs ({ keyword } = { keyword: null }) {
+export function useGifs ({ keyword, rating } = { keyword: null }) {
   const [loading, setLoading] = useState(false)
   const [loadingNextPage, setLoadingNextPage] = useState(false)
 
@@ -19,7 +19,7 @@ export function useGifs ({ keyword } = { keyword: null }) {
 
     getGifs({ keyword: keywordToUse })
       .then(gifs => {
-        setGifs(gifs)
+        getGifs({keyword: keywordToUse, rating})
         setLoading(false)
         // guardamos la keyword en el localStorage
         localStorage.setItem('lastKeyword', keyword)
