@@ -1,14 +1,33 @@
-import React, {useState} from 'react'
+import React, {useReducer, useState} from 'react'
 import { useLocation} from "wouter"
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
 
+const reducer = (state, param) =>{
+  return {
+      ...state,
+      keyword: param,
+      times: state.times + 1
+  }
+}
+
 export default function SearchForm({initialKeyword= '', initialRating='g'}){
-  const [keyword, setKeyword] = useState(decodeURIComponent(initialKeyword))
+  //const [keyword, setKeyword] = useState(decodeURIComponent(initialKeyword))
   const [rating, setRating] = useState(initialRating)
-  const [times, setTimes] = useState (0)
+  //const [times, setTimes] = useState (0)
+
+  const [state, dispatch]=useReducer(reducer, {
+    keyword: decodeURIComponent(initialKeyword),
+    times: 0
+  })  
+
+  const {keyword, times} =state
 
   const [path, pushLocation] = useLocation()
+  
+  const updateKeyword = (keyword) => {
+    dispatch(keyword)
+  }
 
   const handleSubmit = evt => {
     evt.preventDefault()
@@ -16,8 +35,7 @@ export default function SearchForm({initialKeyword= '', initialRating='g'}){
   }
 
   const handleChange = evt => {
-    setKeyword(evt.target.value)
-    setTimes(times + 1)
+    updateKeyword(evt.target.value)
   }
   
 
