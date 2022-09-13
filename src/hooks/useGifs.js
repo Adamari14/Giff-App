@@ -19,7 +19,7 @@ export function useGifs ({ keyword, rating } = { keyword: null }) {
 
     getGifs({ keyword: keywordToUse })
       .then(gifs => {
-        getGifs({keyword: keywordToUse, rating})
+        getGifs({keyword: keywordToUse, rating, page})
         setLoading(false)
         // guardamos la keyword en el localStorage
         localStorage.setItem('lastKeyword', keyword)

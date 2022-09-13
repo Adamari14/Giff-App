@@ -3,8 +3,9 @@ import { useLocation} from "wouter"
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
 
-function SearchForm () {
-  const [keyword, setKeyword] = useState('')
+export default function SearchForm({initialKeyword= '', initialRating='g'}){
+  const [keyword, setKeyword] = useState(decodeURIComponent(initialKeyword))
+  const [rating, setRating] = useState(initialRating)
   const [path, pushLocation] = useLocation()
 
   const handleChange = evt => {
@@ -36,4 +37,4 @@ function SearchForm () {
   )
 }
 
-export default React.memo(SearchForm)
+//export default React.memo(SearchForm)
